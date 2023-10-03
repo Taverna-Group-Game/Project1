@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ac20fc8a16cca4fb828b6e47dbf989, type: 3}
   m_Name: AtributtsMovement Test
   m_EditorClassIdentifier: 
-  velocity: 0
+  velocity: 7
