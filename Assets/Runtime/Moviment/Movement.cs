@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Movement
@@ -6,7 +7,7 @@ public class Movement
     /// Current Object Atributts
     /// </summary>
     public AtributtsMovement Atributts { private get; set; }
-
+        
     /// <summary>
     /// Move Object based a direction in X axis/>
     /// </summary>
@@ -14,7 +15,8 @@ public class Movement
     /// <param name="rigidbody2D"> rigidi body of the object </param>
     public void MoveObject(int direction, Rigidbody2D rigidbody2D)
     {
-        rigidbody2D.velocity = Atributts.velocity * direction * Vector2.right;
+        _direction = direction;
+        rigidbody2D.velocity = Velocity * direction * Vector2.right;
     }
 
     /// <summary>
@@ -25,6 +27,24 @@ public class Movement
     /// <param name="rigidbody2D"> rigidi body of the object </param>
     public void MoveObject(AtributtsMovement atributts, int direction, Rigidbody2D rigidbody2D)
     {
-        rigidbody2D.velocity = atributts.velocity * direction * Vector2.right;
+        Atributts = atributts;
+        _direction = direction;
+        rigidbody2D.velocity = 2 * direction * Vector2.right;
+    }
+
+    private int _direction = 0;
+    private float _velocity = 0;
+
+    /// <summary>
+    /// Returns the current const movement velocity
+    /// </summary>
+    public float Velocity
+    {
+        get
+        {
+            _velocity = _direction == 0 ? _velocity -= Atributts.acceleration * Time.deltaTime : _velocity += Atributts.acceleration * Time.deltaTime;
+            _velocity = Math.Clamp(_velocity, 0, Atributts.maxVelocity);
+            return _velocity;
+        }
     }
 }
