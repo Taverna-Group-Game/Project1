@@ -1,26 +1,26 @@
 using UnityEngine;
 
-
 public class Player : MonoBehaviour
 {
-    private Movement movement;
-    private Rigidbody2D rig;
+    [SerializeField] private AtributtsMovement atributtsMovement;
+    
+    private const string AxisHorizontal = "Horizontal";
 
-    public AtributtsMovement atributtsMovement;
+    Movement movement;
+    Rigidbody2D rig;
 
+    // called in the fisrt freame of object
     private void Start()
     {
         movement = new();
         rig = GetComponent<Rigidbody2D>();
+     
         movement.Atributts = atributtsMovement;
     }
 
+    // called by freame
     private void Update()
     {
-        int plyer = (int)Input.GetAxis("Horizontal");
-        
-        movement.MoveObject(plyer, rig);
-
+        movement.MoveObject((int)Input.GetAxis(AxisHorizontal), rig);
     }
-
 }

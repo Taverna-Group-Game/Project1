@@ -28,8 +28,7 @@ public class Movement
     public void MoveObject(AtributtsMovement atributts, int direction, Rigidbody2D rigidbody2D)
     {
         Atributts = atributts;
-        _direction = direction;
-        rigidbody2D.velocity = 2 * direction * Vector2.right;
+        MoveObject(direction, rigidbody2D);
     }
 
     private int _direction = 0;
