@@ -24,7 +24,7 @@ Contributions are welcome! If you'd like to contribute to "Labirinto de Luz," fo
    - Use the following command to clone the repository, replacing `[your-username]` with your GitHub username:
 
      ```bash
-     git clone https://github.com/[your-username]/Labirinto-de-Luz.git
+     git clone https://github.com/Taverna-Group-Game/Labirinto-de-Luz.git
      ```
 
 3. Open the Unity project in your preferred IDE.
